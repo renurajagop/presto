@@ -13,16 +13,8 @@
  */
 package com.facebook.presto.iceberg;
 
-import com.facebook.airlift.configuration.AbstractConfigurationAwareModule;
-import com.google.inject.Binder;
-import com.google.inject.Scopes;
-
-public class IcebergNativeModule
-        extends AbstractConfigurationAwareModule
+public enum IcebergPartitionType
 {
-    @Override
-    public void setup(Binder binder)
-    {
-        binder.bind(IcebergMetadataFactory.class).to(IcebergNativeMetadataFactory.class).in(Scopes.SINGLETON);
-    }
+    IDENTITY,
+    ALL,
 }
